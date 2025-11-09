@@ -1,0 +1,45 @@
+# .gitignore
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Build artifacts
+#
+# Next.js build output
+/.next/
+/out/
+
+# Production
+/build
+
+# Local Environment Variables
+#
+# !! 매우 중요 !!
+# 이 파일에 카카오 키 등이 있으므로 절대 업로드되면 안 됩니다.
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache
+.npm
+.yarn/cache
+.yarn/plugnplay
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
