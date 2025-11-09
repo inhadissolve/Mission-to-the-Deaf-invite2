@@ -1,4 +1,4 @@
-// src/app/invite/page.jsx
+// src/app/page.jsx
 "use client";
 
 import Head from "next/head";
@@ -21,21 +21,18 @@ import ContactList from "./components/ContactList";
 import KakaoShare from "./components/KakaoShare";
 import QrCode from "./components/QrCode";
 
+// 상수
 import { inviteImgs, galleryImgs } from "@/constants/event";
 
 export default function InvitePage() {
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "";
-  const KAKAO_APP_KEY = process.env.NEXT_PUBLIC_KAKAO_APP_KEY || "dd5389e207535b56dbceb451afa5b1c3";
-  const PAGE_PATH = "/invite";
+  const KAKAO_APP_KEY =
+    process.env.NEXT_PUBLIC_KAKAO_APP_KEY || "dd5389e207535b56dbceb451afa5b1c3";
+  const PAGE_PATH = "/"; // 이제 홈페이지이므로 "/" 입니다.
   const ogImage = `${SITE_URL}/images/book-banner.jpg`;
 
   // 스크롤 애니메이션 훅 실행
   useScrollReveal();
-
-  // 카카오 SDK 초기화
-  useEffect(() => {
-    initKakao(KAKAO_APP_KEY);
-  }, [KAKAO_APP_KEY]);
 
   // 이미지 사전 로드
   useEffect(() => {
@@ -86,10 +83,11 @@ export default function InvitePage() {
         ))}
       </Head>
 
-      {/* Kakao SDK */}
+      {/* Kakao SDK (onLoad로 안전하게 초기화) */}
       <Script
         src="https://developers.kakao.com/sdk/js/kakao.js"
         strategy="afterInteractive"
+        onLoad={() => initKakao(KAKAO_APP_KEY)}
       />
 
       {/* --- 페이지 컴포넌트 조립 --- */}
