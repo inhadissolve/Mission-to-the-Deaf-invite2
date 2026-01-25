@@ -49,7 +49,7 @@ export default function InfoCard() {
           ☎️
         </div>
         <div className="row-stack">
-          <div className="nb">010-4448-3094 이광서 부장님</div>
+          <div className="nb">010-4448-3094 곽보경 자매님</div>
           <div className="nb">010-8286-6778 하군호 목사님</div>
         </div>
       </div>

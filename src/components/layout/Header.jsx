@@ -28,7 +28,7 @@ export default function Header() {
         />
         <div className="title">
           대한예수교침례회 인천교회
-          <span>농인선교부 문해 전도집회</span>
+          <span>농인선교부 전도집회</span>
         </div>
       </div>
       <div className="btns">

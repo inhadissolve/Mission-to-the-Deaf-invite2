@@ -10,14 +10,14 @@ export default function ContactList() {
       <div className="contact-list">
         <div className="contact-card voice" data-reveal="left">
           <div className="contact-left">
-            <span className="contact-type">부장님</span>
-            <span className="contact-name">이광서</span>
+            <span className="contact-type">자매님</span>
+            <span className="contact-name">곽보경</span>
           </div>
           <div className="contact-right">
             <a
               className="contact-link"
               href="tel:01044483094"
-              aria-label="이광서 부장님에게 전화"
+              aria-label="곽보경 자매님에게 전화"
             >
               010-4448-3094
             </a>
@@ -25,7 +25,7 @@ export default function ContactList() {
               📞
             </div>
             <div className="contact-photo">
-              <img src={VOICE_PHOTO} alt="이광서 부장님 사진" />
+              <img src={VOICE_PHOTO} alt="곽보경 자매님 사진" />
             </div>
           </div>
         </div>
