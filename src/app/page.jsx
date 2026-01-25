@@ -59,7 +59,7 @@ export default function InvitePage() {
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
-        <title>농인선교부 문해 전도집회 | 대한예수교침례회 인천교회</title>
+        <title>농인선교부 전도집회 | 대한예수교침례회 인천교회</title>
         <meta
           name="description"
           content="대한예수교침례회 인천교회 농인선교부 문해 전도집회(2026/02/05~08)에 초대합니다."
@@ -68,7 +68,7 @@ export default function InvitePage() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="농인선교부 문해 전도집회 | 대한예수교침례회 인천교회"
+          content="농인선교부 전도집회 | 대한예수교침례회 인천교회"
         />
         <meta
           property="og:description"

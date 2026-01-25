@@ -16,10 +16,10 @@ export default function ContactList() {
           <div className="contact-right">
             <a
               className="contact-link"
-              href="tel:01044483094"
+              href="tel:01024400261"
               aria-label="곽보경 자매님에게 전화"
             >
-              010-4448-3094
+              010-2440-0261
             </a>
             <div className="emoji-box" aria-hidden>
               📞
