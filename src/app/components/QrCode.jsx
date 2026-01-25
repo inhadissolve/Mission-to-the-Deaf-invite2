@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function QrCode() {
   const [qrData, setQrData] = useState("");
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "";
-  const PAGE_PATH = "/invite";
+  const PAGE_PATH = "/";
 
   useEffect(() => {
     const targetUrl = SITE_URL ? SITE_URL + PAGE_PATH : location.href;

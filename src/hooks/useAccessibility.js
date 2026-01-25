@@ -1,29 +1,58 @@
 // src/hooks/useAccessibility.js
 import { useState, useEffect } from "react";
 
-const LEVELS = [18, 20, 22, 24]; // 4단계 레벨
-const MAX_LEVEL = 3; // 1 ~ 3단계만 사용
+const MIN_SCALE = 1;
+const MAX_SCALE = 1.6;
+const STEP = 0.05;
+const STORAGE_KEY = "invite_font_scale";
+const LEGACY_KEY = "invite_font_level";
+
+const clamp = (value) => Math.min(MAX_SCALE, Math.max(MIN_SCALE, value));
+const sanitize = (value) => {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return MIN_SCALE;
+  const rounded = Math.round(num / STEP) * STEP;
+  return clamp(Number(rounded.toFixed(2)));
+};
 
 export function useAccessibility() {
-  const [fontLevel, setFontLevel] = useState(1);
+  const [fontScale, setFontScale] = useState(MIN_SCALE);
 
   useEffect(() => {
+    let scale = MIN_SCALE;
     try {
-      const s = localStorage.getItem("invite_font_level");
-      if (s) setFontLevel(Math.min(MAX_LEVEL, Math.max(1, parseInt(s, 10))));
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        scale = parseFloat(saved);
+      } else {
+        const legacy = localStorage.getItem(LEGACY_KEY);
+        if (legacy) {
+          const level = parseInt(legacy, 10);
+          if (Number.isFinite(level)) scale = 1 + (level - 1) * STEP;
+        }
+      }
     } catch {}
+    setFontScale(sanitize(scale));
   }, []);
 
   useEffect(() => {
-    const px = LEVELS[fontLevel - 1] || 18;
-    document.documentElement.style.setProperty("--base-font", `${px}px`);
+    document.documentElement.style.setProperty("--font-scale", String(fontScale));
     try {
-      localStorage.setItem("invite_font_level", String(fontLevel));
+      localStorage.setItem(STORAGE_KEY, String(fontScale));
     } catch {}
-  }, [fontLevel]);
+  }, [fontScale]);
 
-  const increaseFont = () => setFontLevel((l) => Math.min(MAX_LEVEL, l + 1));
-  const decreaseFont = () => setFontLevel((l) => Math.max(1, l - 1));
+  const increaseFont = () => setFontScale((s) => sanitize(s + STEP));
+  const decreaseFont = () => setFontScale((s) => sanitize(s - STEP));
+  const setScale = (value) => setFontScale(sanitize(value));
 
-  return { fontLevel, increaseFont, decreaseFont, MAX_LEVEL };
+  return {
+    fontScale,
+    increaseFont,
+    decreaseFont,
+    setScale,
+    MIN_SCALE,
+    MAX_SCALE,
+    STEP,
+  };
 }

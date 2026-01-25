@@ -53,31 +53,31 @@ export default function InvitePage() {
 
   return (
     <>
-      {/* 11월 비문해 집회용 Head */}
+      {/* 2월 문해 전도집회용 Head */}
       <Head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
-        <title>비문해 전도집회 | 대한예수교침례회 인천교회</title>
+        <title>농인선교부 문해 전도집회 | 대한예수교침례회 인천교회</title>
         <meta
           name="description"
-          content="대한예수교침례회 인천교회 농선부 비문해 숙박 전도집회(11/22~23)에 초대합니다."
+          content="대한예수교침례회 인천교회 농인선교부 문해 전도집회(2026/02/05~08)에 초대합니다."
         />
         {SITE_URL && <link rel="canonical" href={SITE_URL + PAGE_PATH} />}
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="비문해 전도집회 | 대한예수교침례회 인천교회"
+          content="농인선교부 문해 전도집회 | 대한예수교침례회 인천교회"
         />
         <meta
           property="og:description"
-          content="일정: 11/22(토)~23(일) | 장소: 인천교회 교육원 3층"
+          content="일정: 2/5(목)~8(일) | 장소: 인천교회 교육원 3층"
         />
         <meta property="og:image" content={ogImage} />
         {SITE_URL && <meta property="og:url" content={SITE_URL + PAGE_PATH} />}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="theme-color" content="#174397" />
+        <meta name="theme-color" content="#0f2f2a" />
         {[...inviteImgs.slice(0, 2), ...galleryImgs.slice(0, 2)].map((u) => (
           <link key={u} rel="preload" as="image" href={u} />
         ))}
@@ -95,8 +95,8 @@ export default function InvitePage() {
       <Hero />
 
       <div className="brand-under-book" data-reveal="up" data-delay="60ms">
-        <img src="/images/logo_dove.png" alt="생명의말씀선교회 로고" />
-        <span>생명의말씀선교회</span>
+        <img src="/images/logo_dove.png" alt="대한예수교침례회 인천교회 로고" />
+        <span>대한예수교침례회 인천교회 농인선교부</span>
       </div>
 
       <InviteSlider />

@@ -1,11 +1,16 @@
 // src/app/components/Map.jsx
 "use client";
 import { useMemo } from "react";
-import { ADDRESS } from "@/constants/event"; // 주소 상수를 가져옵니다.
+import { ADDRESS, ADDRESS_DETAIL } from "@/constants/event"; // 주소 상수를 가져옵니다.
 
 export default function Map() {
+  const fullAddress = `${ADDRESS} ${ADDRESS_DETAIL}`;
   const KAKAO_MAP_SHARE_LINK =
-    process.env.NEXT_PUBLIC_KAKAO_MAP_SHARE_LINK || "";
+    process.env.NEXT_PUBLIC_KAKAO_MAP_SHARE_LINK ||
+    `https://map.kakao.com/link/search/${encodeURIComponent(fullAddress)}`;
+  const NAVER_MAP_SHARE_LINK =
+    process.env.NEXT_PUBLIC_NAVER_MAP_SHARE_LINK ||
+    `https://map.naver.com/v5/search/${encodeURIComponent(fullAddress)}`;
 
   // [수정] 표준 Google Maps Embed URL로 변경
   // q=${encodeURIComponent(ADDRESS)} -> 주소를 쿼리로 지정
@@ -14,9 +19,9 @@ export default function Map() {
   const GMAPS_EMBED = useMemo(
     () =>
       `https://maps.google.com/maps?q=${encodeURIComponent(
-        ADDRESS
+        fullAddress
       )}&hl=ko&z=17&output=embed`,
-    [ADDRESS]
+    [fullAddress]
   );
 
   return (
@@ -34,18 +39,18 @@ export default function Map() {
           title="오시는 길"
         />
       </div>
-      <div
-        style={{ textAlign: "center", margin: "-8px 0 30px" }}
-        data-reveal="up"
-        data-delay="140ms"
-      >
-        {KAKAO_MAP_SHARE_LINK ? (
+      <div className="map-meta" data-reveal="up" data-delay="140ms">
+        <div className="map-address">
+          <span className="label">주소</span>
+          <strong>{ADDRESS}</strong>
+          <span className="detail">{ADDRESS_DETAIL}</span>
+        </div>
+        <div className="map-actions">
           <a
             href={KAKAO_MAP_SHARE_LINK}
             target="_blank"
             rel="noreferrer"
             className="btn kmap"
-            style={{ borderRadius: 12 }}
           >
             <svg
               className="kakao-map-icon"
@@ -58,18 +63,20 @@ export default function Map() {
                 fill="#FAE100"
               />
             </svg>
-            카카오맵 열기
+            카카오맵
           </a>
-        ) : (
-          <button
-            className="btn kmap"
-            style={{ borderRadius: 12 }}
-            onClick={() => alert("KAKAO_MAP_SHARE_LINK 설정 필요")}
+          <a
+            href={NAVER_MAP_SHARE_LINK}
+            target="_blank"
+            rel="noreferrer"
+            className="btn nmap"
           >
-            {/* ... 아이콘 SVG ... */}
-            카카오맵 열기
-          </button>
-        )}
+            <span className="naver-badge" aria-hidden>
+              N
+            </span>
+            네이버지도
+          </a>
+        </div>
       </div>
     </>
   );

@@ -10,22 +10,22 @@ export default function ContactList() {
       <div className="contact-list">
         <div className="contact-card voice" data-reveal="left">
           <div className="contact-left">
-            <span className="contact-type">음성</span>
-            <span className="contact-name">송용태 부장</span>
+            <span className="contact-type">부장님</span>
+            <span className="contact-name">이광서</span>
           </div>
           <div className="contact-right">
             <a
               className="contact-link"
-              href="tel:01043425634"
-              aria-label="송용태 부장님에게 전화"
+              href="tel:01044483094"
+              aria-label="이광서 부장님에게 전화"
             >
-              010-4342-5634
+              010-4448-3094
             </a>
             <div className="emoji-box" aria-hidden>
-              🗣️
+              📞
             </div>
             <div className="contact-photo">
-              <img src={VOICE_PHOTO} alt="송용태 부장님 사진" />
+              <img src={VOICE_PHOTO} alt="이광서 부장님 사진" />
             </div>
           </div>
         </div>
@@ -36,8 +36,8 @@ export default function ContactList() {
           data-delay="80ms"
         >
           <div className="contact-left">
-            <span className="contact-type">영상</span>
-            <span className="contact-name">하군호 목사</span>
+            <span className="contact-type">목사님</span>
+            <span className="contact-name">하군호</span>
           </div>
           <div className="contact-right">
             <a
@@ -48,7 +48,7 @@ export default function ContactList() {
               010-8286-6778
             </a>
             <div className="emoji-box" aria-hidden>
-              🤟
+              🙏
             </div>
             <div className="contact-photo">
               <img src={VIDEO_PHOTO} alt="하군호 목사님 사진" />

@@ -1,16 +1,20 @@
 // src/constants/event.js
 
-/** D-Day 기준일 (11월 22일 오후 3시) */
-export const FIRST_EVENT_ISO = "2025-11-22T15:00:00+09:00";
+/** D-Day 기준일 (2026년 2월 5일 오후 7시 30분) */
+export const FIRST_EVENT_ISO = "2026-02-05T19:30:00+09:00";
 
 /** 주소 */
 export const ADDRESS =
   process.env.NEXT_PUBLIC_ADDRESS || "인천 미추홀구 매소홀로418번길 34";
+export const ADDRESS_DETAIL =
+  process.env.NEXT_PUBLIC_ADDRESS_DETAIL || "인천교회 교육원 3층";
 
-/** 집회 일정 (11월) */
+/** 집회 일정 (2월) */
 export const SESSIONS = [
-  { d: 22, label: "22(토) 오후 3:00" },
-  { d: 23, label: "23(일) 오전 10:00" },
+  { d: 5, label: "2/5(목) 오후 7:30" },
+  { d: 6, label: "2/6(금) 오후 7:30" },
+  { d: 7, label: "2/7(토) 오후 7:00" },
+  { d: 8, label: "2/8(일) 오전 11:00" },
 ];
 
 /** 연락처 사진 */
@@ -36,9 +40,9 @@ export const galleryImgs = [
   "/images/2024_04.jpg",
 ];
 
-/** 카카오 공유 정보 (11월) */
+/** 카카오 공유 정보 (2월) */
 export const KAKAO_SHARE_INFO = {
-  TITLE: "비문해 전도집회 초대장",
-  DESC: "일정: 11/22(토)~23(일)\n장소: 인천교회 교육원 3층",
+  TITLE: "농인선교부 문해 전도집회 초대장",
+  DESC: "일정: 2/5(목)~8(일)\n장소: 인천교회 교육원 3층",
   IMAGE_URL: "/images/kakao-cover-800x800.jpg",
 };

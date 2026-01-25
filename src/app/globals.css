@@ -1,10 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap");
+
 :root {
-  --brand: #174397;
-  --accent: #1976d2; /* 영상 파랑 */
-  --voice: #43b17a; /* 음성 초록 */
-  --soft: #f0f7ff;
-  --ink: #222;
-  --base-font: 18px; /* 접근성 단계 값(JS에서 변경) */
+  --brand: #0f2f2a;
+  --accent: #f06449;
+  --voice: #1d8a63;
+  --soft: #f5efe6;
+  --ink: #1f2422;
+  --paper: #faf6ef;
+  --mist: #e6efe9;
+  --base-font: 18px; /* 기본 본문 크기 */
+  --font-scale: 1;
+  --font-display: "Gowun Batang", serif;
+  --font-body: "Gowun Dodum", sans-serif;
 }
 
 /* RESET / 공통 */
@@ -20,11 +27,17 @@ body {
   overflow-x: hidden;
 }
 body {
-  font-family: "Pretendard", "Malgun Gothic", system-ui, -apple-system, Segoe UI,
-    Roboto, sans-serif;
-  background: #f8f8f8;
+  font-family: var(--font-body);
+  background-color: var(--paper);
+  background-image: radial-gradient(
+      circle at 15% 10%,
+      rgba(255, 255, 255, 0.7),
+      transparent 42%
+    ),
+    radial-gradient(circle at 85% 0%, rgba(240, 196, 163, 0.35), transparent 48%),
+    linear-gradient(120deg, rgba(15, 47, 42, 0.08), transparent 55%);
   color: var(--ink);
-  font-size: var(--base-font);
+  font-size: calc(var(--base-font) * var(--font-scale));
   line-height: 1.65;
   -webkit-text-size-adjust: 100%;
   padding-left: env(safe-area-inset-left);
@@ -44,6 +57,6 @@ a {
   text-decoration: none;
 }
 :focus-visible {
-  outline: 3px solid #8ec5ff;
+  outline: 3px solid rgba(240, 100, 73, 0.6);
   outline-offset: 2px;
 }

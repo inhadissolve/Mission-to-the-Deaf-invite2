@@ -10,10 +10,10 @@ export default function InviteSlider() {
     <section
       className="slider-section"
       role="region"
-      aria-label="모바일 초대장 카드 슬라이드"
+      aria-label="초대장 카드 슬라이드"
       data-reveal="up"
     >
-      <div className="slider-title">모바일 초대장 카드</div>
+      <div className="slider-title">초대장 카드</div>
       <div className="slider-container">
         <button
           className="slider-btn left"

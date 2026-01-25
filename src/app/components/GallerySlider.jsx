@@ -13,10 +13,10 @@ export default function GallerySlider() {
       id="gallery"
       className="gallery-section"
       role="region"
-      aria-label="2024 전도집회 사진 갤러리"
+      aria-label="이전 전도집회 사진 갤러리"
       data-reveal="up"
     >
-      <div className="gallery-title">2024 전도집회 사진</div>
+      <div className="gallery-title">이전 전도집회 사진</div>
       <div className="gallery-container">
         <button
           className="gallery-btn left"
@@ -30,7 +30,7 @@ export default function GallerySlider() {
           key={galleryImgs[idx]}
           className="gallery-img fade-in"
           src={galleryImgs[idx]}
-          alt={`2024 사진 ${idx + 1}/${galleryImgs.length}`}
+          alt={`집회 사진 ${idx + 1}/${galleryImgs.length}`}
           loading="lazy"
           decoding="async"
           draggable="false"

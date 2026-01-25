@@ -12,7 +12,7 @@ export default function Dday() {
       data-reveal="up"
       data-delay="60ms"
     >
-      전도집회까지 <span className="num">D-{dLeft}</span>
+      문해 전도집회까지 <span className="num">D-{dLeft}</span>
     </div>
   );
 }

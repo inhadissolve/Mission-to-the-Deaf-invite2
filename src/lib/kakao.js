@@ -37,7 +37,7 @@ export function shareKakao() {
     content: {
       title: TITLE,
       description: DESC,
-      imageUrl: `${location.origin}${IMAGE_URL}?v=2025-11-01`, // 캐시 방지
+      imageUrl: `${location.origin}${IMAGE_URL}?v=2026-02-01`, // 캐시 방지
       link: { mobileWebUrl: url, webUrl: url },
     },
     buttons: [{ title: "초대장 보기", link: { mobileWebUrl: url, webUrl: url } }],

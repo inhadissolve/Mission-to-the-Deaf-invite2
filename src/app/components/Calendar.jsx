@@ -5,8 +5,8 @@ import { SESSIONS } from "@/constants/event";
 
 export default function Calendar() {
   const calendarCells = useMemo(() => {
-    const year = 2025;
-    const month0 = 10; // 11월 (0-based index)
+    const year = 2026;
+    const month0 = 1; // 2월 (0-based index)
 
     const first = new Date(year, month0, 1);
     const firstDow = first.getDay();
@@ -25,7 +25,7 @@ export default function Calendar() {
       const isEvent = eventSet.has(d);
       const isPast = pastUntil > 0 && d <= pastUntil;
       const aria =
-        (isEvent ? `11월 ${d}일, 집회` : `11월 ${d}일`) +
+        (isEvent ? `2월 ${d}일, 집회` : `2월 ${d}일`) +
         (isPast ? ", 오늘 이전" : "");
       cells.push({ inMonth: true, day: d, isEvent, isPast, aria });
     }
@@ -35,15 +35,15 @@ export default function Calendar() {
 
   return (
     <section className="calendar-card" data-reveal="up">
-      <h3>2025년 11월 달력</h3>
+      <h3>2026년 2월 달력</h3>
 
-      <div className="month-cal" role="region" aria-label="2025년 11월 달력">
+      <div className="month-cal" role="region" aria-label="2026년 2월 달력">
         <div className="cal-header">
           <div className="title">한눈에 보는 일정</div>
           <div className="legend">
             <span className="pill event" aria-hidden /> 집회가 있는 날
             <span style={{ width: 10 }} />
-            <span className="pill past" aria-hidden /> 오늘
+            <span className="pill past" aria-hidden /> 오늘 이전
           </div>
         </div>
 
@@ -57,7 +57,7 @@ export default function Calendar() {
           <div>토</div>
         </div>
 
-        <div className="cal-grid" role="grid" aria-label="11월 달력 그리드">
+        <div className="cal-grid" role="grid" aria-label="2월 달력 그리드">
           {calendarCells.map((c, i) => (
             <div
               key={i}
@@ -73,7 +73,7 @@ export default function Calendar() {
           ))}
         </div>
 
-        {/* SESSIONS가 변경되어 자동으로 11월 일정이 표시됩니다. */}
+        {/* SESSIONS가 변경되어 자동으로 일정이 표시됩니다. */}
         <div className="cal-times" aria-label="집회 시간 안내">
           {SESSIONS.map((s) => (
             <span className="cal-tag" key={s.d}>

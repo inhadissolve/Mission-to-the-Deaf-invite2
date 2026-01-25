@@ -1,5 +1,6 @@
 // src/app/invite/components/InfoCard.jsx
 import React from "react";
+import { ADDRESS, ADDRESS_DETAIL } from "@/constants/event";
 
 export default function InfoCard() {
   return (
@@ -10,16 +11,15 @@ export default function InfoCard() {
       data-reveal="zoom"
       data-delay="320ms"
     >
-      {/* 날짜/시간 (11월) */}
+      {/* 날짜/시간 (2월) */}
       <div className="row">
         <div className="ico" aria-hidden>
           📅
         </div>
-        <div className="nb">2025년 11월 22일(토) 오후 3:00</div>
-      </div>
-      <div className="row" style={{ marginTop: 0 }}>
-        <div style={{ width: 20 }} aria-hidden />
-        <div className="nb">23일(일) 오전 10:00</div>
+        <div className="row-stack">
+          <div className="nb">2/5(목)·2/6(금) 오후 7:30</div>
+          <div className="nb">2/7(토) 오후 7:00 · 2/8(일) 오전 11:00</div>
+        </div>
       </div>
 
       {/* 장소 */}
@@ -27,10 +27,19 @@ export default function InfoCard() {
         <div className="ico" aria-hidden>
           📍
         </div>
-        <div>
-          인천 미추홀구 매소홀로418번길 34
-          <br />
-          (인천교회 교육원 3층)
+        <div className="row-stack">
+          <div className="nb">{ADDRESS}</div>
+          <div className="muted">{ADDRESS_DETAIL}</div>
+        </div>
+      </div>
+
+      {/* 대상/인원 */}
+      <div className="row">
+        <div className="ico" aria-hidden>
+          👥
+        </div>
+        <div className="row-stack">
+          <div>농인/청인 성도들, 가족, 친구, 지인 등</div>
         </div>
       </div>
 
@@ -39,11 +48,10 @@ export default function InfoCard() {
         <div className="ico" aria-hidden>
           ☎️
         </div>
-        <div className="nb">(영상) 010-8286-6778 하군호</div>
-      </div>
-      <div className="row" style={{ marginTop: 0 }}>
-        <div style={{ width: 20 }} aria-hidden />
-        <div className="nb">(음성) 010-4342-5634 송용태</div>
+        <div className="row-stack">
+          <div className="nb">010-4448-3094 이광서 부장님</div>
+          <div className="nb">010-8286-6778 하군호 목사님</div>
+        </div>
       </div>
     </div>
   );
