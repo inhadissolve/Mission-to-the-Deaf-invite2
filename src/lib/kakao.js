@@ -29,7 +29,15 @@ export function shareKakao() {
     return;
   }
 
-  const url = location.href;
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "";
+  const PAGE_PATH = process.env.NEXT_PUBLIC_SITE_PATH || "/";
+  const normalizedPath = PAGE_PATH.startsWith("/") ? PAGE_PATH : `/${PAGE_PATH}`;
+  const baseOrigin = SITE_URL ? SITE_URL.replace(/\/+$/, "") : "";
+  const shareUrl = baseOrigin ? `${baseOrigin}${normalizedPath}` : "";
+  if (!shareUrl) {
+    alert("공유 주소가 설정되지 않았습니다. NEXT_PUBLIC_SITE_URL을 설정하세요.");
+    return;
+  }
   const { TITLE, DESC, IMAGE_URL } = KAKAO_SHARE_INFO;
 
   window.Kakao.Link.sendDefault({
@@ -37,9 +45,11 @@ export function shareKakao() {
     content: {
       title: TITLE,
       description: DESC,
-      imageUrl: `${location.origin}${IMAGE_URL}?v=2026-02-01`, // 캐시 방지
-      link: { mobileWebUrl: url, webUrl: url },
+      imageUrl: `${baseOrigin}${IMAGE_URL.startsWith("/") ? "" : "/"}${IMAGE_URL}?v=2026-02-01`, // 캐시 방지
+      link: { mobileWebUrl: shareUrl, webUrl: shareUrl },
     },
-    buttons: [{ title: "초대장 보기", link: { mobileWebUrl: url, webUrl: url } }],
+    buttons: [
+      { title: "초대장 보기", link: { mobileWebUrl: shareUrl, webUrl: shareUrl } },
+    ],
   });
 }

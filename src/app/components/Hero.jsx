@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="hero" role="region" aria-label="문해 전도집회 초대 배너">
       <div className="hero__inner">
 
-        <div className="hero__badge" data-reveal="up" data-delay="300ms">
+        <div className="hero__badge" data-reveal="up" data-delay="160ms">
           2026.02.05(목) - 02.08(일)
         </div>
 
